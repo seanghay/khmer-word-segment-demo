@@ -1,3 +1,7 @@
+const $loader = document.querySelector('#loader');
+const $app = document.querySelector('#app');
+
+
 (async function () {
 
   /**
@@ -5,6 +9,10 @@
    */
   const tflite = window.tflite
   const model = await tflite.loadTFLiteModel('https://cdn.jsdelivr.net/gh/Socret360/akara-android@main/akara/src/main/assets/khmer_word_seg_model.tflite')
+  
+  $app.style.display = 'block';
+  $loader.style.display = 'none';
+
 
   const POS_MAP = 'AB;AUX;CC;CD;DT;IN;JJ;VB;NN;PN;PA;PRO;QT;RB;SYM;NS'.split(';');
   const CHAR_MAP = "!#%&()*+,-./0123456789<=>?@[\\]^_កខគឃងចឆជឈញដឋឌឍណតថទធនបផពភមយរលវឝឞសហឡអឣឤឥឦឧឨឩឪឫឬឭឮឯឰឱឲឳ឴឵ាិីឹឺុូួើឿៀេែៃោៅំះៈ៉៊់៌៍៎៏័្។៕ៗ៘៙៚៛០១២៣៤៥៦៧៨៩​"
